@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: acr090701/node-app:latest
+          image: acr090701.azurecr.io/node-app:latest
           ports:
             - containerPort: 80
           env:
