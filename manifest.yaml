@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  selector:
+    app: node-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+        - name: node-app
+          image: acr090701/node-app:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: DBHOST
+              value: mysql-service
+            - name: DBUSERNAME
+              value: root
+            - name: DBPASSWORD
+              value: root
+            - name: DBDIALECT
+              value: mysql
+            - name: DBNAME
+              value: nodeemp
+            - name: DBPORT
+              value: "3306"
+            - name: APPLICATION_HOST
+              value: "0.0.0.0"
+            - name: APPLICATION_PORT
+              value: "80"
+            - name: NODE_ENV
+              value: production
+            - name: WHITELIST_URLS
+              value: "*"
