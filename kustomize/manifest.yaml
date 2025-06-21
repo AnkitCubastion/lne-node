@@ -46,6 +46,6 @@ spec:
               value: production
             - name: WHITELIST_URLS
               value: "http://20.103.145.56//"
-          envFrom: 
+          envFrom:
             -  secretRef:
-                 name: mysql-secret.yaml
+                 name: mysql-sealedsecret.yaml
