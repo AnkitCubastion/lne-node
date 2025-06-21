@@ -4,6 +4,7 @@ kind: Service
 metadata:
   name: node-app-service
 spec:
+  type: LoadBalancer
   selector:
     app: node-app
   ports:
@@ -50,4 +51,4 @@ spec:
             - name: NODE_ENV
               value: production
             - name: WHITELIST_URLS
-              value: "http://132.220.55.16/"
+              value: "http://20.4.186.159/"
