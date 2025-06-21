@@ -32,11 +32,11 @@ spec:
             - containerPort: 80
           env:
             - name: DBHOST
-              value: mysql-service
+              value: amfs.mysql.database.azure.com
             - name: DBUSERNAME
-              value: root
+              value: ankit090701
             - name: DBPASSWORD
-              value: root
+              value: Drowssap@3302
             - name: DBDIALECT
               value: mysql
             - name: DBNAME
@@ -50,4 +50,4 @@ spec:
             - name: NODE_ENV
               value: production
             - name: WHITELIST_URLS
-              value: "*"
+              value: "http://http://132.220.55.16/"
